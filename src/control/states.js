@@ -161,17 +161,11 @@ const states = {
     store.dispatch(actions.nextBlock());
     states.auto();
     store.dispatch(actions.lock(false));
-    const clearLines = state.get('clearLines') + lines.length;
     store.dispatch(actions.clearLines(clearLines)); // 更新消除行
 
     const addPoints = store.getState().get('points') +
       clearPoints[lines.length - 1]; // 一次消除的行越多, 加分越多
     states.dispatchPoints(addPoints);
-
-    //const speedAdd = 0; //Math.floor(clearLines / eachLines); // 消除行数, 增加对应速度
-    //let speedNow = state.get('speedStart') + speedAdd;
-    //speedNow = speedNow > 6 ? 6 : speedNow;
-    store.dispatch(actions.speedRun(0));//speedNow));
   },
 
   // 游戏结束, 触发动画
