@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import store from '../store';
 import { want, isClear, isOver } from '../unit/';
 import actions from '../actions';
-import { speeds, blankLine, blankMatrix, clearPoints, eachLines } from '../unit/const';
+import { speeds, blankLine, blankMatrix, clearPoints } from '../unit/const';
 import { music } from '../unit/music';
 
 
@@ -161,6 +161,7 @@ const states = {
     store.dispatch(actions.nextBlock());
     states.auto();
     store.dispatch(actions.lock(false));
+    const clearLines = state.get('clearLines') + lines.length;
     store.dispatch(actions.clearLines(clearLines)); // 更新消除行
 
     const addPoints = store.getState().get('points') +
