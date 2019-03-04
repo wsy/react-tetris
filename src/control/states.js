@@ -168,10 +168,10 @@ const states = {
       clearPoints[lines.length - 1]; // 一次消除的行越多, 加分越多
     states.dispatchPoints(addPoints);
 
-    const speedAdd = Math.floor(clearLines / eachLines); // 消除行数, 增加对应速度
-    let speedNow = state.get('speedStart') + speedAdd;
-    speedNow = speedNow > 6 ? 6 : speedNow;
-    store.dispatch(actions.speedRun(speedNow));
+    //const speedAdd = 0; //Math.floor(clearLines / eachLines); // 消除行数, 增加对应速度
+    //let speedNow = state.get('speedStart') + speedAdd;
+    //speedNow = speedNow > 6 ? 6 : speedNow;
+    store.dispatch(actions.speedRun(0));//speedNow));
   },
 
   // 游戏结束, 触发动画
